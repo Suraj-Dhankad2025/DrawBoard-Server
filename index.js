@@ -3,6 +3,8 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 import cors from "cors";
 const app = express();
+const isDev = app.settings.env === "development";
+const url = isDev ? "http://localhost:3000" : "https://sketch-book-3wx1a6twa-suraj-dhankad2025.vercel.app";
 app.use(cors({origin: 'http://localhost:3000'}));
 const httpServer = createServer(app);
 const io = new Server(httpServer, { cors: 'http://localhost:3000' });
